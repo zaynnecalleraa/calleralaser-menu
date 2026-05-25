@@ -1,0 +1,253 @@
+:root {
+  --primary-color: #bf944e;
+  --text-color: var(--primary-color);
+  --border-width: 2px;
+  --max-width: 540px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+}
+
+/* ✅ AQUI é o pulo do gato:
+   - Fundo aplicado no HTML também (resolve “faixa branca” no iPhone)
+   - Cor de fallback igual ao tom do fundo
+*/
+html {
+  background-color: #f6f0e6;
+  background-image: url('images/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  /* iOS: melhora renderização */
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Body vira “transparente” porque o fundo já helps no html */
+body {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* ✅ Altura correta em mobile (iPhone) */
+  min-height: 100vh;   /* fallback */
+  min-height: 100svh;  /* melhor para mobile */
+  min-height: 100dvh;  /* melhor quando suportado */
+}
+
+.wrapper {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: clamp(1.2rem, 3vw, 2rem) 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* ✅ acompanha a viewport real */
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: clamp(2.2rem, 5.5vw, 4.5rem);
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin: 0 auto 0.5rem;
+  display: block;
+}
+
+header h1 {
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
+  font-size: 1.9rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+  color: var(--primary-color);
+}
+
+header h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  color: var(--primary-color);
+}
+
+/* Grid */
+.icon-grid {
+  width: 100%;
+}
+
+.icon-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top: var(--border-width) solid var(--primary-color);
+  border-bottom: var(--border-width) solid var(--primary-color);
+
+  padding: clamp(1.1rem, 3.5vw, 1.8rem) 0;
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+}
+
+.row-two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-top: none;
+  border-bottom: var(--border-width) solid var(--primary-color);
+
+  padding: clamp(1.1rem, 3.5vw, 1.8rem) 0;
+  margin-bottom: clamp(1.2rem, 4vw, 2.2rem);
+
+  width: 90%;
+  max-width: min(400px, 92vw);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row-two .icon-box {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.icon-box {
+  flex: 1;
+  position: relative;
+  text-align: center;
+  padding: 0 clamp(0.8rem, 3vw, 2rem);
+}
+
+.icon-box:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--border-width);
+  background-color: var(--primary-color);
+}
+
+.icon-box a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  width: clamp(58px, 10vw, 80px);
+  height: clamp(58px, 10vw, 80px);
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  filter: none;
+}
+
+.label {
+  font-size: clamp(0.68rem, 2.2vw, 0.85rem);
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding-top: clamp(0.5rem, 2vw, 1rem);
+  padding-bottom: clamp(0.6rem, 2vw, 1.2rem);
+}
+
+footer p {
+  font-size: 0.85rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  color: var(--primary-color);
+}
+
+.hand-icon {
+  width: 48px;
+  height: auto;
+  margin: 1rem auto 0.5rem;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(33%) sepia(36%) saturate(592%)
+    hue-rotate(13deg) brightness(94%) contrast(84%);
+}
+
+/* Medium screens */
+@media (min-width: 600px) {
+  .logo { width: 140px; }
+  header h1 { font-size: 2.1rem; }
+  header h2 { font-size: 0.95rem; letter-spacing: 0.3rem; }
+  .icon { width: 70px; height: 70px; }
+  .label { font-size: 0.8rem; }
+  .row-two { width: 100%; }
+  footer p { font-size: 0.95rem; }
+}
+
+/* Large screens */
+@media (min-width: 900px) {
+  .logo { width: 160px; }
+  header h1 { font-size: 2.5rem; }
+  header h2 { font-size: 1rem; letter-spacing: 0.35rem; }
+  .icon { width: 80px; height: 80px; }
+  .label { font-size: 0.85rem; }
+  .row-two { width: 100%; }
+  footer p { font-size: 1rem; }
+}
+
+/* ✅ MOBILE: sem empurrar com margin-top gigante.
+   A centralização fica estável e o fundo não “abre branco”.
+*/
+@media (max-width: 599px) {
+  .wrapper {
+    justify-content: center;         /* centraliza de forma natural */
+    gap: 1.1rem;                     /* dá respiro sem “puxar pra cima” */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .label {
+    font-size: 0.65rem;
+  }
+
+  .icon-row,
+  .row-two {
+    padding: 0.8rem 0;
+    margin-bottom: 0.4rem;
+  }
+
+  /* ✅ IMPORTANTÍSSIMO: removi o que estava bagunçando tudo no celular */
+  .icon-grid {
+    margin-top: 0;
+  }
+}
+ 
