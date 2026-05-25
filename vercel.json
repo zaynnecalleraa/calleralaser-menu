@@ -4,16 +4,17 @@
       "source": "/",
       "destination": "/menu",
       "permanent": false
+    },
+    {
+      "source": "/ficha-anamnese",
+      "destination": "/ficha-anamnese/",
+      "permanent": false
     }
   ],
   "rewrites": [
     {
-      "source": "/ficha-anamnese",
-      "destination": "https://ficha-anamnese.vercel.app"
-    },
-    {
       "source": "/ficha-anamnese/:path*",
-      "destination": "https://ficha-anamnese.vercel.app/:path*"
+      "destination": "https://ficha-anamnese.vercel.app/ficha-anamnese/:path*"
     }
   ]
 }
