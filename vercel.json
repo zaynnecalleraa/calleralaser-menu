@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/menu",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/ficha-anamnese",
+      "destination": "https://ficha-anamnese.vercel.app"
+    },
+    {
+      "source": "/ficha-anamnese/:path*",
+      "destination": "https://ficha-anamnese.vercel.app/:path*"
+    }
+  ]
+}
