@@ -9,11 +9,11 @@
   "rewrites": [
     {
       "source": "/ficha-anamnese",
-      "destination": "https://ficha-anamnese.vercel.app"
+      "destination": "https://ficha-anamnese.vercel.app/ficha-anamnese"
     },
     {
       "source": "/ficha-anamnese/:path*",
-      "destination": "https://ficha-anamnese.vercel.app/:path*"
+      "destination": "https://ficha-anamnese.vercel.app/ficha-anamnese/:path*"
     }
   ]
 }
